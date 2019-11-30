@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 创建时间： 2019/11/28  22:39
- * 备注：
+ * 备注：连接nacos测试
  **/
 @SpringBootApplication
 public class CloudConfigApp {
