@@ -3,9 +3,9 @@
 
 ### 系统使用的技术
 1. 后端：Spring Cloud Alibaba、Mybatis-Plus、Springboot、Netty
-2、权限认证：Spring Security、Oauth2
-2. 数据库：Mysql、Mongodb
-3. 中间件：Redis、RocketMQ
-4. 存储云：七牛
-5. 前端：uniapp
-6. 同时提供IOS和Android版本
+2. 权限认证：Spring Security、Oauth2
+3. 数据库：Mysql、Mongodb
+4. 中间件：Redis、RocketMQ
+5. 存储云：七牛
+6. 前端：uniapp、Materialize
+7. 同时提供IOS和Android版本
