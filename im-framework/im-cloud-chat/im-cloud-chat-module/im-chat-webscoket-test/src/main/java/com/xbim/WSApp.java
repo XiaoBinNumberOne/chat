@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  **/
 
 @SpringBootApplication
-public class WSTestApp {
+public class WSApp {
     public static void main(String[] args) {
-        SpringApplication.run(WSTestApp.class);
+        SpringApplication.run(WSApp.class);
     }
 }

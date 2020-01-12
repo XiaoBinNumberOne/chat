@@ -34,6 +34,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>im-cloud-config</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
     </dependencies>
 
 
