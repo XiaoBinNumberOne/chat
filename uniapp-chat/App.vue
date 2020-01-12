@@ -6,7 +6,7 @@ export default {
 		setTimeout(() => {
 			uni.setTabBarBadge({
 				index: 1,
-				text: '31'
+				text: '31' 
 			});
 			uni.showTabBarRedDot({
 				index: 3
