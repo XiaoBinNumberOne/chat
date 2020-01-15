@@ -15,6 +15,7 @@
     <modules>
         <module>im-cloud-config</module>
         <module>im-cloud-security-oauth2</module>
+        <module>im-cloud-mybatis-plus</module>
     </modules>
 
     <dependencies>

@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  **/
 
 @SpringBootApplication
-public class WSApp {
+public class WebsocketTestApplication {
     public static void main(String[] args) {
-        SpringApplication.run(WSApp.class);
+        SpringApplication.run(WebsocketTestApplication.class);
     }
 }
