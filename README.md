@@ -1,11 +1,11 @@
 ### 概述
-1. 开发一套前后端im系统
+1. 开发一套前后端分离im系统
 ### 模块简介
 | 模块  | 说明  | 进度 |
 | :------------ |:---------------:| -----:|
-| [im-framework](https://github.com/XiaoBinNumberOne/chat/tree/master/im-framework/ "Java后端")      | Java后端 | 1% |
-| [im-web](https://github.com/XiaoBinNumberOne/chat/tree/master/im-web/ "web端")     | Vue3.0 web端        |   1% |
-|[uniapp-chat](https://github.com/XiaoBinNumberOne/chat/tree/master/uniapp-chat/ "uniapp端") | uniapp端       |   1% |
+| [im-framework](https://github.com/XiaoBinNumberOne/chat/tree/master/im-framework/ "Java后端")      | Java后端   | 1% |
+| [im-web](https://github.com/XiaoBinNumberOne/chat/tree/master/im-web/ "web端")     | Vue3.0 web端               | 1% |
+|[uniapp-chat](https://github.com/XiaoBinNumberOne/chat/tree/master/uniapp-chat/ "uniapp端") | uniapp端           | 1% |
 ### 系统使用的技术
 1. 后端：Spring Cloud Alibaba、Mybatis-Plus、Springboot、Netty
 2. 权限认证：Spring Security、Spring Security Oauth2
