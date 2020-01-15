@@ -13,5 +13,6 @@
 4. 数据库：Mysql、Mongodb
 5. 中间件：Redis、RocketMQ
 6. 存储云：七牛
+7. 通讯协议：TCP、Protobuf
 7. 前端：uniapp、Materialize
 8. 同时提供IOS和Android版本
