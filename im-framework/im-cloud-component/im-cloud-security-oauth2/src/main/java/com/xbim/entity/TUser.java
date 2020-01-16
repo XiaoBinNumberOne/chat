@@ -80,12 +80,14 @@ public class TUser implements UserDetails {
 
     @ApiModelProperty(value = "更新人ID")
     private Long updateUser;
-
+    /**
+     * 权限加载
+     */
+    private  List<SimpleGrantedAuthority> authorityList;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<SimpleGrantedAuthority> ga = new ArrayList<SimpleGrantedAuthority>();
-        return ga;
+       return this.authorityList;
     }
 
     @Override
