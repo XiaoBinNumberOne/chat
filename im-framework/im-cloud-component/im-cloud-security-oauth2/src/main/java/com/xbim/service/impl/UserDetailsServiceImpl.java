@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xbim.entity.TUser;
 import com.xbim.mapper.TUserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -25,6 +26,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (ObjectUtil.isEmpty(tUser)) {
             throw new UsernameNotFoundException("未找到您的账户信息");
         }
+        AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_AMIN , system:user:delete");
         return tUser;
     }
 }
