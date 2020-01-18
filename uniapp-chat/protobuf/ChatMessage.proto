@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message chatMsg{
+	string msgId = 1;
+	uint64 fromId = 2;
+	uint64 toId = 3;
+	string msg = 4;
+}
