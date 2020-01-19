@@ -3,28 +3,22 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>im-cloud-chat</artifactId>
+        <artifactId>im-cloud-chat-module</artifactId>
         <groupId>com.xbim</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>im-cloud-chat-module</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>im-chat-webscoket-test</module>
-        <module>im-chat-business</module>
-    </modules>
-
+    <artifactId>im-chat-business</artifactId>
 
     <dependencies>
-
+        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
         <dependency>
-            <groupId>com.xbim</groupId>
-            <artifactId>im-cloud-chat-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.44.Final</version>
         </dependency>
-    </dependencies>
 
+    </dependencies>
 
 </project>

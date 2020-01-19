@@ -11,5 +11,17 @@
 
     <artifactId>im-cloud-chat-common</artifactId>
 
+    <properties>
+        <protobuf.version>3.8.0</protobuf.version>
+    </properties>
+
+    <dependencies>
+        <!-- protobuf -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
