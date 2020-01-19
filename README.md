@@ -7,7 +7,7 @@
 | [im-framework](https://github.com/XiaoBinNumberOne/chat/tree/master/im-framework/ "Java后端")      | Java后端   | 1% |
 | [im-web](https://github.com/XiaoBinNumberOne/chat/tree/master/im-web/ "web端")     | Web管理端              | 1% |
 |[uniapp-chat](https://github.com/XiaoBinNumberOne/chat/tree/master/uniapp-chat/ "uniapp端") | uniapp端           | 1% |
-### 系统使用的技术
+### 😈系统使用的技术
 1. 后端：Spring Cloud Alibaba、Mybatis-Plus、Springboot、Netty
 2. 权限认证：Spring Security、Spring Security Oauth2
 3. 网关：Spring Cloud Gateway
@@ -18,7 +18,7 @@
 7. 前端：uniapp、Materialize
 8. 同时提供IOS和Android版本
 
-### 😈待解决的问题 
+### 👋待解决的问题 
 1. 离线信息处理
 2. 丢消息问题
 3. 消息顺序问题
