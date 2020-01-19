@@ -1,4 +1,4 @@
-package com.xbim.server;
+package com.xbim.netty.demo.server;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

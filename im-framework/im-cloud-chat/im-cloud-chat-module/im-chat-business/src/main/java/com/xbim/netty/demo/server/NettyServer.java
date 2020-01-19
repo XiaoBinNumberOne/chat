@@ -1,4 +1,4 @@
-package com.xbim.server;
+package com.xbim.netty.demo.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
