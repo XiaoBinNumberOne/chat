@@ -3,25 +3,22 @@
 
 package com.xbim.protobuf;
 
-public final class MessageProtobuf {
-  private MessageProtobuf() {
+public final class Message {
+  private Message() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
   }
 
   public static void registerAllExtensions(
-          com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-          com.google.protobuf.ExtensionRegistry registry) {
+      com.google.protobuf.ExtensionRegistry registry) {
     registerAllExtensions(
-            (com.google.protobuf.ExtensionRegistryLite) registry);
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-
   /**
    * Protobuf enum {@code MsgType}
    */
   public enum MsgType
-          implements com.google.protobuf.ProtocolMessageEnum {
+      implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
      * 握手消息
@@ -46,7 +43,7 @@ public final class MessageProtobuf {
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
         throw new IllegalArgumentException(
-                "Can't get the number of an unknown enum value.");
+            "Can't get the number of an unknown enum value.");
       }
       return value;
     }
@@ -61,48 +58,43 @@ public final class MessageProtobuf {
 
     public static MsgType forNumber(int value) {
       switch (value) {
-        case 0:
-          return HANDSHAKE;
-        default:
-          return null;
+        case 0: return HANDSHAKE;
+        default: return null;
       }
     }
 
     public static com.google.protobuf.Internal.EnumLiteMap<MsgType>
-    internalGetValueMap() {
+        internalGetValueMap() {
       return internalValueMap;
     }
-
     private static final com.google.protobuf.Internal.EnumLiteMap<
-            MsgType> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
-              public MsgType findValueByNumber(int number) {
-                return MsgType.forNumber(number);
-              }
-            };
+        MsgType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
+            public MsgType findValueByNumber(int number) {
+              return MsgType.forNumber(number);
+            }
+          };
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
+        getValueDescriptor() {
       return getDescriptor().getValues().get(ordinal());
     }
-
     public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
+        getDescriptorForType() {
       return getDescriptor();
     }
-
     public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
-      return com.xbim.protobuf.MessageProtobuf.getDescriptor().getEnumTypes().get(0);
+        getDescriptor() {
+      return Message.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final MsgType[] VALUES = values();
 
     public static MsgType valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new IllegalArgumentException(
-                "EnumValueDescriptor is not for this type.");
+          "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -123,7 +115,7 @@ public final class MessageProtobuf {
    * Protobuf enum {@code MsgContentType}
    */
   public enum MsgContentType
-          implements com.google.protobuf.ProtocolMessageEnum {
+      implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
      * 文本消息
@@ -148,7 +140,7 @@ public final class MessageProtobuf {
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
         throw new IllegalArgumentException(
-                "Can't get the number of an unknown enum value.");
+            "Can't get the number of an unknown enum value.");
       }
       return value;
     }
@@ -163,48 +155,43 @@ public final class MessageProtobuf {
 
     public static MsgContentType forNumber(int value) {
       switch (value) {
-        case 0:
-          return TEXT;
-        default:
-          return null;
+        case 0: return TEXT;
+        default: return null;
       }
     }
 
     public static com.google.protobuf.Internal.EnumLiteMap<MsgContentType>
-    internalGetValueMap() {
+        internalGetValueMap() {
       return internalValueMap;
     }
-
     private static final com.google.protobuf.Internal.EnumLiteMap<
-            MsgContentType> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<MsgContentType>() {
-              public MsgContentType findValueByNumber(int number) {
-                return MsgContentType.forNumber(number);
-              }
-            };
+        MsgContentType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MsgContentType>() {
+            public MsgContentType findValueByNumber(int number) {
+              return MsgContentType.forNumber(number);
+            }
+          };
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
+        getValueDescriptor() {
       return getDescriptor().getValues().get(ordinal());
     }
-
     public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
+        getDescriptorForType() {
       return getDescriptor();
     }
-
     public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
-      return com.xbim.protobuf.MessageProtobuf.getDescriptor().getEnumTypes().get(1);
+        getDescriptor() {
+      return Message.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final MsgContentType[] VALUES = values();
 
     public static MsgContentType valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new IllegalArgumentException(
-                "EnumValueDescriptor is not for this type.");
+          "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -222,8 +209,8 @@ public final class MessageProtobuf {
   }
 
   public interface ChatMessageOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:ChatMessage)
-          com.google.protobuf.MessageOrBuilder {
+      // @@protoc_insertion_point(interface_extends:ChatMessage)
+      com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
@@ -233,7 +220,6 @@ public final class MessageProtobuf {
      * <code>.Head head = 1;</code>
      */
     boolean hasHead();
-
     /**
      * <pre>
      * 消息头
@@ -241,8 +227,7 @@ public final class MessageProtobuf {
      *
      * <code>.Head head = 1;</code>
      */
-    com.xbim.protobuf.MessageProtobuf.Head getHead();
-
+    Head getHead();
     /**
      * <pre>
      * 消息头
@@ -250,7 +235,7 @@ public final class MessageProtobuf {
      *
      * <code>.Head head = 1;</code>
      */
-    com.xbim.protobuf.MessageProtobuf.HeadOrBuilder getHeadOrBuilder();
+    HeadOrBuilder getHeadOrBuilder();
 
     /**
      * <pre>
@@ -260,7 +245,6 @@ public final class MessageProtobuf {
      * <code>string body = 2;</code>
      */
     String getBody();
-
     /**
      * <pre>
      * 消息体
@@ -269,23 +253,20 @@ public final class MessageProtobuf {
      * <code>string body = 2;</code>
      */
     com.google.protobuf.ByteString
-    getBodyBytes();
+        getBodyBytes();
   }
-
   /**
    * Protobuf type {@code ChatMessage}
    */
-  public static final class ChatMessage extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:ChatMessage)
-          ChatMessageOrBuilder {
-    private static final long serialVersionUID = 0L;
-
+  public  static final class ChatMessage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:ChatMessage)
+      ChatMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ChatMessage.newBuilder() to construct.
     private ChatMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private ChatMessage() {
       body_ = "";
     }
@@ -293,7 +274,7 @@ public final class MessageProtobuf {
     @Override
     @SuppressWarnings({"unused"})
     protected Object newInstance(
-            UnusedPrivateParameter unused) {
+        UnusedPrivateParameter unused) {
       return new ChatMessage();
     }
 
@@ -302,17 +283,16 @@ public final class MessageProtobuf {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private ChatMessage(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
         throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -322,11 +302,11 @@ public final class MessageProtobuf {
               done = true;
               break;
             case 10: {
-              com.xbim.protobuf.MessageProtobuf.Head.Builder subBuilder = null;
+              Head.Builder subBuilder = null;
               if (head_ != null) {
                 subBuilder = head_.toBuilder();
               }
-              head_ = input.readMessage(com.xbim.protobuf.MessageProtobuf.Head.parser(), extensionRegistry);
+              head_ = input.readMessage(Head.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(head_);
                 head_ = subBuilder.buildPartial();
@@ -342,7 +322,7 @@ public final class MessageProtobuf {
             }
             default: {
               if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -353,29 +333,27 @@ public final class MessageProtobuf {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return internal_static_ChatMessage_descriptor;
+        getDescriptor() {
+      return Message.internal_static_ChatMessage_descriptor;
     }
 
     @Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return internal_static_ChatMessage_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.xbim.protobuf.MessageProtobuf.ChatMessage.class, com.xbim.protobuf.MessageProtobuf.ChatMessage.Builder.class);
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_ChatMessage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ChatMessage.class, Builder.class);
     }
 
     public static final int HEAD_FIELD_NUMBER = 1;
-    private com.xbim.protobuf.MessageProtobuf.Head head_;
-
+    private Head head_;
     /**
      * <pre>
      * 消息头
@@ -386,7 +364,6 @@ public final class MessageProtobuf {
     public boolean hasHead() {
       return head_ != null;
     }
-
     /**
      * <pre>
      * 消息头
@@ -394,10 +371,9 @@ public final class MessageProtobuf {
      *
      * <code>.Head head = 1;</code>
      */
-    public com.xbim.protobuf.MessageProtobuf.Head getHead() {
-      return head_ == null ? com.xbim.protobuf.MessageProtobuf.Head.getDefaultInstance() : head_;
+    public Head getHead() {
+      return head_ == null ? Head.getDefaultInstance() : head_;
     }
-
     /**
      * <pre>
      * 消息头
@@ -405,13 +381,12 @@ public final class MessageProtobuf {
      *
      * <code>.Head head = 1;</code>
      */
-    public com.xbim.protobuf.MessageProtobuf.HeadOrBuilder getHeadOrBuilder() {
+    public HeadOrBuilder getHeadOrBuilder() {
       return getHead();
     }
 
     public static final int BODY_FIELD_NUMBER = 2;
     private volatile Object body_;
-
     /**
      * <pre>
      * 消息体
@@ -425,13 +400,12 @@ public final class MessageProtobuf {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
+            (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         body_ = s;
         return s;
       }
     }
-
     /**
      * <pre>
      * 消息体
@@ -440,12 +414,12 @@ public final class MessageProtobuf {
      * <code>string body = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getBodyBytes() {
+        getBodyBytes() {
       Object ref = body_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
         body_ = b;
         return b;
       } else {
@@ -454,7 +428,6 @@ public final class MessageProtobuf {
     }
 
     private byte memoizedIsInitialized = -1;
-
     @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -467,7 +440,7 @@ public final class MessageProtobuf {
 
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
+                        throws java.io.IOException {
       if (head_ != null) {
         output.writeMessage(1, getHead());
       }
@@ -485,7 +458,7 @@ public final class MessageProtobuf {
       size = 0;
       if (head_ != null) {
         size += com.google.protobuf.CodedOutputStream
-                .computeMessageSize(1, getHead());
+          .computeMessageSize(1, getHead());
       }
       if (!getBodyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, body_);
@@ -498,20 +471,20 @@ public final class MessageProtobuf {
     @Override
     public boolean equals(final Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
-      if (!(obj instanceof com.xbim.protobuf.MessageProtobuf.ChatMessage)) {
+      if (!(obj instanceof ChatMessage)) {
         return super.equals(obj);
       }
-      com.xbim.protobuf.MessageProtobuf.ChatMessage other = (com.xbim.protobuf.MessageProtobuf.ChatMessage) obj;
+      ChatMessage other = (ChatMessage) obj;
 
       if (hasHead() != other.hasHead()) return false;
       if (hasHead()) {
         if (!getHead()
-                .equals(other.getHead())) return false;
+            .equals(other.getHead())) return false;
       }
       if (!getBody()
-              .equals(other.getBody())) return false;
+          .equals(other.getBody())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -534,150 +507,131 @@ public final class MessageProtobuf {
       return hash;
     }
 
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static ChatMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
+    public static ChatMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
+          .parseWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static ChatMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
+    public static ChatMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
+          .parseDelimitedWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static ChatMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
+    public static ChatMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
+          .parseWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static ChatMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     @Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
-    public static Builder newBuilder(com.xbim.protobuf.MessageProtobuf.ChatMessage prototype) {
+    public static Builder newBuilder(ChatMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code ChatMessage}
      */
     public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:ChatMessage)
-            com.xbim.protobuf.MessageProtobuf.ChatMessageOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:ChatMessage)
+        ChatMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return internal_static_ChatMessage_descriptor;
+          getDescriptor() {
+        return Message.internal_static_ChatMessage_descriptor;
       }
 
       @Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return internal_static_ChatMessage_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.xbim.protobuf.MessageProtobuf.ChatMessage.class, com.xbim.protobuf.MessageProtobuf.ChatMessage.Builder.class);
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_ChatMessage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ChatMessage.class, Builder.class);
       }
 
-      // Construct using com.xbim.protobuf.MessageProtobuf.ChatMessage.newBuilder()
+      // Construct using com.xbim.protobuf.Message.ChatMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
       private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
         }
       }
-
       @Override
       public Builder clear() {
         super.clear();
@@ -694,18 +648,18 @@ public final class MessageProtobuf {
 
       @Override
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return internal_static_ChatMessage_descriptor;
+          getDescriptorForType() {
+        return Message.internal_static_ChatMessage_descriptor;
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.ChatMessage getDefaultInstanceForType() {
-        return getDefaultInstance();
+      public ChatMessage getDefaultInstanceForType() {
+        return ChatMessage.getDefaultInstance();
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.ChatMessage build() {
-        com.xbim.protobuf.MessageProtobuf.ChatMessage result = buildPartial();
+      public ChatMessage build() {
+        ChatMessage result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -713,8 +667,8 @@ public final class MessageProtobuf {
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.ChatMessage buildPartial() {
-        com.xbim.protobuf.MessageProtobuf.ChatMessage result = new com.xbim.protobuf.MessageProtobuf.ChatMessage(this);
+      public ChatMessage buildPartial() {
+        ChatMessage result = new ChatMessage(this);
         if (headBuilder_ == null) {
           result.head_ = head_;
         } else {
@@ -729,52 +683,46 @@ public final class MessageProtobuf {
       public Builder clone() {
         return super.clone();
       }
-
       @Override
       public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
         return super.setField(field, value);
       }
-
       @Override
       public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-
       @Override
       public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-
       @Override
       public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-
       @Override
       public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-
       @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xbim.protobuf.MessageProtobuf.ChatMessage) {
-          return mergeFrom((com.xbim.protobuf.MessageProtobuf.ChatMessage) other);
+        if (other instanceof ChatMessage) {
+          return mergeFrom((ChatMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xbim.protobuf.MessageProtobuf.ChatMessage other) {
-        if (other == getDefaultInstance()) return this;
+      public Builder mergeFrom(ChatMessage other) {
+        if (other == ChatMessage.getDefaultInstance()) return this;
         if (other.hasHead()) {
           mergeHead(other.getHead());
         }
@@ -794,14 +742,14 @@ public final class MessageProtobuf {
 
       @Override
       public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-        com.xbim.protobuf.MessageProtobuf.ChatMessage parsedMessage = null;
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ChatMessage parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xbim.protobuf.MessageProtobuf.ChatMessage) e.getUnfinishedMessage();
+          parsedMessage = (ChatMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -811,10 +759,9 @@ public final class MessageProtobuf {
         return this;
       }
 
-      private com.xbim.protobuf.MessageProtobuf.Head head_;
+      private Head head_;
       private com.google.protobuf.SingleFieldBuilderV3<
-              com.xbim.protobuf.MessageProtobuf.Head, com.xbim.protobuf.MessageProtobuf.Head.Builder, com.xbim.protobuf.MessageProtobuf.HeadOrBuilder> headBuilder_;
-
+          Head, Head.Builder, HeadOrBuilder> headBuilder_;
       /**
        * <pre>
        * 消息头
@@ -825,7 +772,6 @@ public final class MessageProtobuf {
       public boolean hasHead() {
         return headBuilder_ != null || head_ != null;
       }
-
       /**
        * <pre>
        * 消息头
@@ -833,14 +779,13 @@ public final class MessageProtobuf {
        *
        * <code>.Head head = 1;</code>
        */
-      public com.xbim.protobuf.MessageProtobuf.Head getHead() {
+      public Head getHead() {
         if (headBuilder_ == null) {
-          return head_ == null ? com.xbim.protobuf.MessageProtobuf.Head.getDefaultInstance() : head_;
+          return head_ == null ? Head.getDefaultInstance() : head_;
         } else {
           return headBuilder_.getMessage();
         }
       }
-
       /**
        * <pre>
        * 消息头
@@ -848,7 +793,7 @@ public final class MessageProtobuf {
        *
        * <code>.Head head = 1;</code>
        */
-      public Builder setHead(com.xbim.protobuf.MessageProtobuf.Head value) {
+      public Builder setHead(Head value) {
         if (headBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -861,7 +806,6 @@ public final class MessageProtobuf {
 
         return this;
       }
-
       /**
        * <pre>
        * 消息头
@@ -870,7 +814,7 @@ public final class MessageProtobuf {
        * <code>.Head head = 1;</code>
        */
       public Builder setHead(
-              com.xbim.protobuf.MessageProtobuf.Head.Builder builderForValue) {
+          Head.Builder builderForValue) {
         if (headBuilder_ == null) {
           head_ = builderForValue.build();
           onChanged();
@@ -880,7 +824,6 @@ public final class MessageProtobuf {
 
         return this;
       }
-
       /**
        * <pre>
        * 消息头
@@ -888,11 +831,11 @@ public final class MessageProtobuf {
        *
        * <code>.Head head = 1;</code>
        */
-      public Builder mergeHead(com.xbim.protobuf.MessageProtobuf.Head value) {
+      public Builder mergeHead(Head value) {
         if (headBuilder_ == null) {
           if (head_ != null) {
             head_ =
-                    com.xbim.protobuf.MessageProtobuf.Head.newBuilder(head_).mergeFrom(value).buildPartial();
+              Head.newBuilder(head_).mergeFrom(value).buildPartial();
           } else {
             head_ = value;
           }
@@ -903,7 +846,6 @@ public final class MessageProtobuf {
 
         return this;
       }
-
       /**
        * <pre>
        * 消息头
@@ -922,7 +864,6 @@ public final class MessageProtobuf {
 
         return this;
       }
-
       /**
        * <pre>
        * 消息头
@@ -930,12 +871,11 @@ public final class MessageProtobuf {
        *
        * <code>.Head head = 1;</code>
        */
-      public com.xbim.protobuf.MessageProtobuf.Head.Builder getHeadBuilder() {
+      public Head.Builder getHeadBuilder() {
 
         onChanged();
         return getHeadFieldBuilder().getBuilder();
       }
-
       /**
        * <pre>
        * 消息头
@@ -943,15 +883,14 @@ public final class MessageProtobuf {
        *
        * <code>.Head head = 1;</code>
        */
-      public com.xbim.protobuf.MessageProtobuf.HeadOrBuilder getHeadOrBuilder() {
+      public HeadOrBuilder getHeadOrBuilder() {
         if (headBuilder_ != null) {
           return headBuilder_.getMessageOrBuilder();
         } else {
           return head_ == null ?
-                  com.xbim.protobuf.MessageProtobuf.Head.getDefaultInstance() : head_;
+              Head.getDefaultInstance() : head_;
         }
       }
-
       /**
        * <pre>
        * 消息头
@@ -960,11 +899,11 @@ public final class MessageProtobuf {
        * <code>.Head head = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-              com.xbim.protobuf.MessageProtobuf.Head, com.xbim.protobuf.MessageProtobuf.Head.Builder, com.xbim.protobuf.MessageProtobuf.HeadOrBuilder>
-      getHeadFieldBuilder() {
+          Head, Head.Builder, HeadOrBuilder>
+          getHeadFieldBuilder() {
         if (headBuilder_ == null) {
           headBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                  com.xbim.protobuf.MessageProtobuf.Head, com.xbim.protobuf.MessageProtobuf.Head.Builder, com.xbim.protobuf.MessageProtobuf.HeadOrBuilder>(
+              Head, Head.Builder, HeadOrBuilder>(
                   getHead(),
                   getParentForChildren(),
                   isClean());
@@ -974,7 +913,6 @@ public final class MessageProtobuf {
       }
 
       private Object body_ = "";
-
       /**
        * <pre>
        * 消息体
@@ -986,7 +924,7 @@ public final class MessageProtobuf {
         Object ref = body_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
+              (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
           body_ = s;
           return s;
@@ -994,7 +932,6 @@ public final class MessageProtobuf {
           return (String) ref;
         }
       }
-
       /**
        * <pre>
        * 消息体
@@ -1003,19 +940,18 @@ public final class MessageProtobuf {
        * <code>string body = 2;</code>
        */
       public com.google.protobuf.ByteString
-      getBodyBytes() {
+          getBodyBytes() {
         Object ref = body_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (String) ref);
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
           body_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <pre>
        * 消息体
@@ -1024,16 +960,15 @@ public final class MessageProtobuf {
        * <code>string body = 2;</code>
        */
       public Builder setBody(
-              String value) {
+          String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
+    throw new NullPointerException();
+  }
 
         body_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息体
@@ -1047,7 +982,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息体
@@ -1056,26 +990,25 @@ public final class MessageProtobuf {
        * <code>string body = 2;</code>
        */
       public Builder setBodyBytes(
-              com.google.protobuf.ByteString value) {
+          com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
 
         body_ = value;
         onChanged();
         return this;
       }
-
       @Override
       public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
       @Override
       public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
       }
 
@@ -1084,23 +1017,22 @@ public final class MessageProtobuf {
     }
 
     // @@protoc_insertion_point(class_scope:ChatMessage)
-    private static final com.xbim.protobuf.MessageProtobuf.ChatMessage DEFAULT_INSTANCE;
-
+    private static final ChatMessage DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.xbim.protobuf.MessageProtobuf.ChatMessage();
+      DEFAULT_INSTANCE = new ChatMessage();
     }
 
-    public static com.xbim.protobuf.MessageProtobuf.ChatMessage getDefaultInstance() {
+    public static ChatMessage getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ChatMessage>
-            PARSER = new com.google.protobuf.AbstractParser<ChatMessage>() {
+        PARSER = new com.google.protobuf.AbstractParser<ChatMessage>() {
       @Override
       public ChatMessage parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
         return new ChatMessage(input, extensionRegistry);
       }
     };
@@ -1115,15 +1047,15 @@ public final class MessageProtobuf {
     }
 
     @Override
-    public com.xbim.protobuf.MessageProtobuf.ChatMessage getDefaultInstanceForType() {
+    public ChatMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   public interface HeadOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:Head)
-          com.google.protobuf.MessageOrBuilder {
+      // @@protoc_insertion_point(interface_extends:Head)
+      com.google.protobuf.MessageOrBuilder {
 
     /**
      * <pre>
@@ -1133,7 +1065,6 @@ public final class MessageProtobuf {
      * <code>string msgId = 1;</code>
      */
     String getMsgId();
-
     /**
      * <pre>
      * 消息id
@@ -1142,7 +1073,7 @@ public final class MessageProtobuf {
      * <code>string msgId = 1;</code>
      */
     com.google.protobuf.ByteString
-    getMsgIdBytes();
+        getMsgIdBytes();
 
     /**
      * <pre>
@@ -1152,7 +1083,6 @@ public final class MessageProtobuf {
      * <code>.MsgType msgType = 2;</code>
      */
     int getMsgTypeValue();
-
     /**
      * <pre>
      * 消息类型
@@ -1160,7 +1090,7 @@ public final class MessageProtobuf {
      *
      * <code>.MsgType msgType = 2;</code>
      */
-    com.xbim.protobuf.MessageProtobuf.MsgType getMsgType();
+    MsgType getMsgType();
 
     /**
      * <pre>
@@ -1170,7 +1100,6 @@ public final class MessageProtobuf {
      * <code>.MsgContentType msgContentType = 3;</code>
      */
     int getMsgContentTypeValue();
-
     /**
      * <pre>
      * 消息内容类型
@@ -1178,7 +1107,7 @@ public final class MessageProtobuf {
      *
      * <code>.MsgContentType msgContentType = 3;</code>
      */
-    com.xbim.protobuf.MessageProtobuf.MsgContentType getMsgContentType();
+    MsgContentType getMsgContentType();
 
     /**
      * <pre>
@@ -1224,7 +1153,6 @@ public final class MessageProtobuf {
      * <code>string extend = 8;</code>
      */
     String getExtend();
-
     /**
      * <pre>
      * 扩展字段(JSON格式)
@@ -1233,23 +1161,20 @@ public final class MessageProtobuf {
      * <code>string extend = 8;</code>
      */
     com.google.protobuf.ByteString
-    getExtendBytes();
+        getExtendBytes();
   }
-
   /**
    * Protobuf type {@code Head}
    */
-  public static final class Head extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:Head)
-          HeadOrBuilder {
-    private static final long serialVersionUID = 0L;
-
+  public  static final class Head extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Head)
+      HeadOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Head.newBuilder() to construct.
     private Head(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private Head() {
       msgId_ = "";
       msgType_ = 0;
@@ -1260,7 +1185,7 @@ public final class MessageProtobuf {
     @Override
     @SuppressWarnings({"unused"})
     protected Object newInstance(
-            UnusedPrivateParameter unused) {
+        UnusedPrivateParameter unused) {
       return new Head();
     }
 
@@ -1269,17 +1194,16 @@ public final class MessageProtobuf {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private Head(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
         throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1334,7 +1258,7 @@ public final class MessageProtobuf {
             }
             default: {
               if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1345,29 +1269,27 @@ public final class MessageProtobuf {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
-      return internal_static_Head_descriptor;
+        getDescriptor() {
+      return Message.internal_static_Head_descriptor;
     }
 
     @Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
-      return internal_static_Head_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                      com.xbim.protobuf.MessageProtobuf.Head.class, com.xbim.protobuf.MessageProtobuf.Head.Builder.class);
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Message.internal_static_Head_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Head.class, Builder.class);
     }
 
     public static final int MSGID_FIELD_NUMBER = 1;
     private volatile Object msgId_;
-
     /**
      * <pre>
      * 消息id
@@ -1381,13 +1303,12 @@ public final class MessageProtobuf {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
+            (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         msgId_ = s;
         return s;
       }
     }
-
     /**
      * <pre>
      * 消息id
@@ -1396,12 +1317,12 @@ public final class MessageProtobuf {
      * <code>string msgId = 1;</code>
      */
     public com.google.protobuf.ByteString
-    getMsgIdBytes() {
+        getMsgIdBytes() {
       Object ref = msgId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
         msgId_ = b;
         return b;
       } else {
@@ -1411,7 +1332,6 @@ public final class MessageProtobuf {
 
     public static final int MSGTYPE_FIELD_NUMBER = 2;
     private int msgType_;
-
     /**
      * <pre>
      * 消息类型
@@ -1422,7 +1342,6 @@ public final class MessageProtobuf {
     public int getMsgTypeValue() {
       return msgType_;
     }
-
     /**
      * <pre>
      * 消息类型
@@ -1430,15 +1349,14 @@ public final class MessageProtobuf {
      *
      * <code>.MsgType msgType = 2;</code>
      */
-    public com.xbim.protobuf.MessageProtobuf.MsgType getMsgType() {
+    public MsgType getMsgType() {
       @SuppressWarnings("deprecation")
-      com.xbim.protobuf.MessageProtobuf.MsgType result = com.xbim.protobuf.MessageProtobuf.MsgType.valueOf(msgType_);
-      return result == null ? com.xbim.protobuf.MessageProtobuf.MsgType.UNRECOGNIZED : result;
+      MsgType result = MsgType.valueOf(msgType_);
+      return result == null ? MsgType.UNRECOGNIZED : result;
     }
 
     public static final int MSGCONTENTTYPE_FIELD_NUMBER = 3;
     private int msgContentType_;
-
     /**
      * <pre>
      * 消息内容类型
@@ -1449,7 +1367,6 @@ public final class MessageProtobuf {
     public int getMsgContentTypeValue() {
       return msgContentType_;
     }
-
     /**
      * <pre>
      * 消息内容类型
@@ -1457,15 +1374,14 @@ public final class MessageProtobuf {
      *
      * <code>.MsgContentType msgContentType = 3;</code>
      */
-    public com.xbim.protobuf.MessageProtobuf.MsgContentType getMsgContentType() {
+    public MsgContentType getMsgContentType() {
       @SuppressWarnings("deprecation")
-      com.xbim.protobuf.MessageProtobuf.MsgContentType result = com.xbim.protobuf.MessageProtobuf.MsgContentType.valueOf(msgContentType_);
-      return result == null ? com.xbim.protobuf.MessageProtobuf.MsgContentType.UNRECOGNIZED : result;
+      MsgContentType result = MsgContentType.valueOf(msgContentType_);
+      return result == null ? MsgContentType.UNRECOGNIZED : result;
     }
 
     public static final int FROMID_FIELD_NUMBER = 4;
     private long fromId_;
-
     /**
      * <pre>
      * 消息发送者id
@@ -1479,7 +1395,6 @@ public final class MessageProtobuf {
 
     public static final int TOID_FIELD_NUMBER = 5;
     private long toId_;
-
     /**
      * <pre>
      * 消息接收者id
@@ -1493,7 +1408,6 @@ public final class MessageProtobuf {
 
     public static final int TIMESTAMP_FIELD_NUMBER = 6;
     private long timestamp_;
-
     /**
      * <pre>
      * 消息时间戳
@@ -1507,7 +1421,6 @@ public final class MessageProtobuf {
 
     public static final int STATUSREPORT_FIELD_NUMBER = 7;
     private int statusReport_;
-
     /**
      * <pre>
      * 状态报告
@@ -1521,7 +1434,6 @@ public final class MessageProtobuf {
 
     public static final int EXTEND_FIELD_NUMBER = 8;
     private volatile Object extend_;
-
     /**
      * <pre>
      * 扩展字段(JSON格式)
@@ -1535,13 +1447,12 @@ public final class MessageProtobuf {
         return (String) ref;
       } else {
         com.google.protobuf.ByteString bs =
-                (com.google.protobuf.ByteString) ref;
+            (com.google.protobuf.ByteString) ref;
         String s = bs.toStringUtf8();
         extend_ = s;
         return s;
       }
     }
-
     /**
      * <pre>
      * 扩展字段(JSON格式)
@@ -1550,12 +1461,12 @@ public final class MessageProtobuf {
      * <code>string extend = 8;</code>
      */
     public com.google.protobuf.ByteString
-    getExtendBytes() {
+        getExtendBytes() {
       Object ref = extend_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b =
-                com.google.protobuf.ByteString.copyFromUtf8(
-                        (String) ref);
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
         extend_ = b;
         return b;
       } else {
@@ -1564,7 +1475,6 @@ public final class MessageProtobuf {
     }
 
     private byte memoizedIsInitialized = -1;
-
     @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1577,14 +1487,14 @@ public final class MessageProtobuf {
 
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-            throws java.io.IOException {
+                        throws java.io.IOException {
       if (!getMsgIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msgId_);
       }
-      if (msgType_ != com.xbim.protobuf.MessageProtobuf.MsgType.HANDSHAKE.getNumber()) {
+      if (msgType_ != MsgType.HANDSHAKE.getNumber()) {
         output.writeEnum(2, msgType_);
       }
-      if (msgContentType_ != com.xbim.protobuf.MessageProtobuf.MsgContentType.TEXT.getNumber()) {
+      if (msgContentType_ != MsgContentType.TEXT.getNumber()) {
         output.writeEnum(3, msgContentType_);
       }
       if (fromId_ != 0L) {
@@ -1614,29 +1524,29 @@ public final class MessageProtobuf {
       if (!getMsgIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msgId_);
       }
-      if (msgType_ != com.xbim.protobuf.MessageProtobuf.MsgType.HANDSHAKE.getNumber()) {
+      if (msgType_ != MsgType.HANDSHAKE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-                .computeEnumSize(2, msgType_);
+          .computeEnumSize(2, msgType_);
       }
-      if (msgContentType_ != com.xbim.protobuf.MessageProtobuf.MsgContentType.TEXT.getNumber()) {
+      if (msgContentType_ != MsgContentType.TEXT.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
-                .computeEnumSize(3, msgContentType_);
+          .computeEnumSize(3, msgContentType_);
       }
       if (fromId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(4, fromId_);
+          .computeInt64Size(4, fromId_);
       }
       if (toId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(5, toId_);
+          .computeInt64Size(5, toId_);
       }
       if (timestamp_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-                .computeInt64Size(6, timestamp_);
+          .computeInt64Size(6, timestamp_);
       }
       if (statusReport_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-                .computeInt32Size(7, statusReport_);
+          .computeInt32Size(7, statusReport_);
       }
       if (!getExtendBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, extend_);
@@ -1649,27 +1559,27 @@ public final class MessageProtobuf {
     @Override
     public boolean equals(final Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
-      if (!(obj instanceof com.xbim.protobuf.MessageProtobuf.Head)) {
+      if (!(obj instanceof Head)) {
         return super.equals(obj);
       }
-      com.xbim.protobuf.MessageProtobuf.Head other = (com.xbim.protobuf.MessageProtobuf.Head) obj;
+      Head other = (Head) obj;
 
       if (!getMsgId()
-              .equals(other.getMsgId())) return false;
+          .equals(other.getMsgId())) return false;
       if (msgType_ != other.msgType_) return false;
       if (msgContentType_ != other.msgContentType_) return false;
       if (getFromId()
-              != other.getFromId()) return false;
+          != other.getFromId()) return false;
       if (getToId()
-              != other.getToId()) return false;
+          != other.getToId()) return false;
       if (getTimestamp()
-              != other.getTimestamp()) return false;
+          != other.getTimestamp()) return false;
       if (getStatusReport()
-              != other.getStatusReport()) return false;
+          != other.getStatusReport()) return false;
       if (!getExtend()
-              .equals(other.getExtend())) return false;
+          .equals(other.getExtend())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1689,13 +1599,13 @@ public final class MessageProtobuf {
       hash = (53 * hash) + msgContentType_;
       hash = (37 * hash) + FROMID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              getFromId());
+          getFromId());
       hash = (37 * hash) + TOID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              getToId());
+          getToId());
       hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              getTimestamp());
+          getTimestamp());
       hash = (37 * hash) + STATUSREPORT_FIELD_NUMBER;
       hash = (53 * hash) + getStatusReport();
       hash = (37 * hash) + EXTEND_FIELD_NUMBER;
@@ -1705,150 +1615,131 @@ public final class MessageProtobuf {
       return hash;
     }
 
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            java.nio.ByteBuffer data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            java.nio.ByteBuffer data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
+    public static Head parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
+    public static Head parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
+          .parseWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static Head parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
+    public static Head parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
+          .parseDelimitedWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static Head parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
+    public static Head parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
+          .parseWithIOException(PARSER, input);
     }
-
-    public static com.xbim.protobuf.MessageProtobuf.Head parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
+    public static Head parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
     @Override
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
-    public static Builder newBuilder(com.xbim.protobuf.MessageProtobuf.Head prototype) {
+    public static Builder newBuilder(Head prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder().mergeFrom(this);
     }
 
     @Override
     protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * Protobuf type {@code Head}
      */
     public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:Head)
-            com.xbim.protobuf.MessageProtobuf.HeadOrBuilder {
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Head)
+        HeadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
-        return internal_static_Head_descriptor;
+          getDescriptor() {
+        return Message.internal_static_Head_descriptor;
       }
 
       @Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
-        return internal_static_Head_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                        com.xbim.protobuf.MessageProtobuf.Head.class, com.xbim.protobuf.MessageProtobuf.Head.Builder.class);
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Message.internal_static_Head_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Head.class, Builder.class);
       }
 
-      // Construct using com.xbim.protobuf.MessageProtobuf.Head.newBuilder()
+      // Construct using com.xbim.protobuf.Message.Head.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
 
       private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
         }
       }
-
       @Override
       public Builder clear() {
         super.clear();
@@ -1873,18 +1764,18 @@ public final class MessageProtobuf {
 
       @Override
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
-        return internal_static_Head_descriptor;
+          getDescriptorForType() {
+        return Message.internal_static_Head_descriptor;
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.Head getDefaultInstanceForType() {
-        return getDefaultInstance();
+      public Head getDefaultInstanceForType() {
+        return Head.getDefaultInstance();
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.Head build() {
-        com.xbim.protobuf.MessageProtobuf.Head result = buildPartial();
+      public Head build() {
+        Head result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -1892,8 +1783,8 @@ public final class MessageProtobuf {
       }
 
       @Override
-      public com.xbim.protobuf.MessageProtobuf.Head buildPartial() {
-        com.xbim.protobuf.MessageProtobuf.Head result = new com.xbim.protobuf.MessageProtobuf.Head(this);
+      public Head buildPartial() {
+        Head result = new Head(this);
         result.msgId_ = msgId_;
         result.msgType_ = msgType_;
         result.msgContentType_ = msgContentType_;
@@ -1910,52 +1801,46 @@ public final class MessageProtobuf {
       public Builder clone() {
         return super.clone();
       }
-
       @Override
       public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
         return super.setField(field, value);
       }
-
       @Override
       public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-
       @Override
       public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-
       @Override
       public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-
       @Override
       public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-
       @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xbim.protobuf.MessageProtobuf.Head) {
-          return mergeFrom((com.xbim.protobuf.MessageProtobuf.Head) other);
+        if (other instanceof Head) {
+          return mergeFrom((Head)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xbim.protobuf.MessageProtobuf.Head other) {
-        if (other == getDefaultInstance()) return this;
+      public Builder mergeFrom(Head other) {
+        if (other == Head.getDefaultInstance()) return this;
         if (!other.getMsgId().isEmpty()) {
           msgId_ = other.msgId_;
           onChanged();
@@ -1994,14 +1879,14 @@ public final class MessageProtobuf {
 
       @Override
       public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-        com.xbim.protobuf.MessageProtobuf.Head parsedMessage = null;
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Head parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xbim.protobuf.MessageProtobuf.Head) e.getUnfinishedMessage();
+          parsedMessage = (Head) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2012,7 +1897,6 @@ public final class MessageProtobuf {
       }
 
       private Object msgId_ = "";
-
       /**
        * <pre>
        * 消息id
@@ -2024,7 +1908,7 @@ public final class MessageProtobuf {
         Object ref = msgId_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
+              (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
           msgId_ = s;
           return s;
@@ -2032,7 +1916,6 @@ public final class MessageProtobuf {
           return (String) ref;
         }
       }
-
       /**
        * <pre>
        * 消息id
@@ -2041,19 +1924,18 @@ public final class MessageProtobuf {
        * <code>string msgId = 1;</code>
        */
       public com.google.protobuf.ByteString
-      getMsgIdBytes() {
+          getMsgIdBytes() {
         Object ref = msgId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (String) ref);
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
           msgId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <pre>
        * 消息id
@@ -2062,16 +1944,15 @@ public final class MessageProtobuf {
        * <code>string msgId = 1;</code>
        */
       public Builder setMsgId(
-              String value) {
+          String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
+    throw new NullPointerException();
+  }
 
         msgId_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息id
@@ -2085,7 +1966,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息id
@@ -2094,11 +1974,11 @@ public final class MessageProtobuf {
        * <code>string msgId = 1;</code>
        */
       public Builder setMsgIdBytes(
-              com.google.protobuf.ByteString value) {
+          com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
 
         msgId_ = value;
         onChanged();
@@ -2106,7 +1986,6 @@ public final class MessageProtobuf {
       }
 
       private int msgType_ = 0;
-
       /**
        * <pre>
        * 消息类型
@@ -2117,7 +1996,6 @@ public final class MessageProtobuf {
       public int getMsgTypeValue() {
         return msgType_;
       }
-
       /**
        * <pre>
        * 消息类型
@@ -2130,7 +2008,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息类型
@@ -2138,12 +2015,11 @@ public final class MessageProtobuf {
        *
        * <code>.MsgType msgType = 2;</code>
        */
-      public com.xbim.protobuf.MessageProtobuf.MsgType getMsgType() {
+      public MsgType getMsgType() {
         @SuppressWarnings("deprecation")
-        com.xbim.protobuf.MessageProtobuf.MsgType result = com.xbim.protobuf.MessageProtobuf.MsgType.valueOf(msgType_);
-        return result == null ? com.xbim.protobuf.MessageProtobuf.MsgType.UNRECOGNIZED : result;
+        MsgType result = MsgType.valueOf(msgType_);
+        return result == null ? MsgType.UNRECOGNIZED : result;
       }
-
       /**
        * <pre>
        * 消息类型
@@ -2151,7 +2027,7 @@ public final class MessageProtobuf {
        *
        * <code>.MsgType msgType = 2;</code>
        */
-      public Builder setMsgType(com.xbim.protobuf.MessageProtobuf.MsgType value) {
+      public Builder setMsgType(MsgType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2160,7 +2036,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息类型
@@ -2176,7 +2051,6 @@ public final class MessageProtobuf {
       }
 
       private int msgContentType_ = 0;
-
       /**
        * <pre>
        * 消息内容类型
@@ -2187,7 +2061,6 @@ public final class MessageProtobuf {
       public int getMsgContentTypeValue() {
         return msgContentType_;
       }
-
       /**
        * <pre>
        * 消息内容类型
@@ -2200,7 +2073,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息内容类型
@@ -2208,12 +2080,11 @@ public final class MessageProtobuf {
        *
        * <code>.MsgContentType msgContentType = 3;</code>
        */
-      public com.xbim.protobuf.MessageProtobuf.MsgContentType getMsgContentType() {
+      public MsgContentType getMsgContentType() {
         @SuppressWarnings("deprecation")
-        com.xbim.protobuf.MessageProtobuf.MsgContentType result = com.xbim.protobuf.MessageProtobuf.MsgContentType.valueOf(msgContentType_);
-        return result == null ? com.xbim.protobuf.MessageProtobuf.MsgContentType.UNRECOGNIZED : result;
+        MsgContentType result = MsgContentType.valueOf(msgContentType_);
+        return result == null ? MsgContentType.UNRECOGNIZED : result;
       }
-
       /**
        * <pre>
        * 消息内容类型
@@ -2221,7 +2092,7 @@ public final class MessageProtobuf {
        *
        * <code>.MsgContentType msgContentType = 3;</code>
        */
-      public Builder setMsgContentType(com.xbim.protobuf.MessageProtobuf.MsgContentType value) {
+      public Builder setMsgContentType(MsgContentType value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2230,7 +2101,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息内容类型
@@ -2245,8 +2115,7 @@ public final class MessageProtobuf {
         return this;
       }
 
-      private long fromId_;
-
+      private long fromId_ ;
       /**
        * <pre>
        * 消息发送者id
@@ -2257,7 +2126,6 @@ public final class MessageProtobuf {
       public long getFromId() {
         return fromId_;
       }
-
       /**
        * <pre>
        * 消息发送者id
@@ -2271,7 +2139,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息发送者id
@@ -2286,8 +2153,7 @@ public final class MessageProtobuf {
         return this;
       }
 
-      private long toId_;
-
+      private long toId_ ;
       /**
        * <pre>
        * 消息接收者id
@@ -2298,7 +2164,6 @@ public final class MessageProtobuf {
       public long getToId() {
         return toId_;
       }
-
       /**
        * <pre>
        * 消息接收者id
@@ -2312,7 +2177,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息接收者id
@@ -2327,8 +2191,7 @@ public final class MessageProtobuf {
         return this;
       }
 
-      private long timestamp_;
-
+      private long timestamp_ ;
       /**
        * <pre>
        * 消息时间戳
@@ -2339,7 +2202,6 @@ public final class MessageProtobuf {
       public long getTimestamp() {
         return timestamp_;
       }
-
       /**
        * <pre>
        * 消息时间戳
@@ -2353,7 +2215,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 消息时间戳
@@ -2368,8 +2229,7 @@ public final class MessageProtobuf {
         return this;
       }
 
-      private int statusReport_;
-
+      private int statusReport_ ;
       /**
        * <pre>
        * 状态报告
@@ -2380,7 +2240,6 @@ public final class MessageProtobuf {
       public int getStatusReport() {
         return statusReport_;
       }
-
       /**
        * <pre>
        * 状态报告
@@ -2394,7 +2253,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 状态报告
@@ -2410,7 +2268,6 @@ public final class MessageProtobuf {
       }
 
       private Object extend_ = "";
-
       /**
        * <pre>
        * 扩展字段(JSON格式)
@@ -2422,7 +2279,7 @@ public final class MessageProtobuf {
         Object ref = extend_;
         if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
+              (com.google.protobuf.ByteString) ref;
           String s = bs.toStringUtf8();
           extend_ = s;
           return s;
@@ -2430,7 +2287,6 @@ public final class MessageProtobuf {
           return (String) ref;
         }
       }
-
       /**
        * <pre>
        * 扩展字段(JSON格式)
@@ -2439,19 +2295,18 @@ public final class MessageProtobuf {
        * <code>string extend = 8;</code>
        */
       public com.google.protobuf.ByteString
-      getExtendBytes() {
+          getExtendBytes() {
         Object ref = extend_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b =
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                          (String) ref);
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
           extend_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <pre>
        * 扩展字段(JSON格式)
@@ -2460,16 +2315,15 @@ public final class MessageProtobuf {
        * <code>string extend = 8;</code>
        */
       public Builder setExtend(
-              String value) {
+          String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
+    throw new NullPointerException();
+  }
 
         extend_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 扩展字段(JSON格式)
@@ -2483,7 +2337,6 @@ public final class MessageProtobuf {
         onChanged();
         return this;
       }
-
       /**
        * <pre>
        * 扩展字段(JSON格式)
@@ -2492,26 +2345,25 @@ public final class MessageProtobuf {
        * <code>string extend = 8;</code>
        */
       public Builder setExtendBytes(
-              com.google.protobuf.ByteString value) {
+          com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        checkByteStringIsUtf8(value);
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
 
         extend_ = value;
         onChanged();
         return this;
       }
-
       @Override
       public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
       @Override
       public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
       }
 
@@ -2520,23 +2372,22 @@ public final class MessageProtobuf {
     }
 
     // @@protoc_insertion_point(class_scope:Head)
-    private static final com.xbim.protobuf.MessageProtobuf.Head DEFAULT_INSTANCE;
-
+    private static final Head DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.xbim.protobuf.MessageProtobuf.Head();
+      DEFAULT_INSTANCE = new Head();
     }
 
-    public static com.xbim.protobuf.MessageProtobuf.Head getDefaultInstance() {
+    public static Head getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<Head>
-            PARSER = new com.google.protobuf.AbstractParser<Head>() {
+        PARSER = new com.google.protobuf.AbstractParser<Head>() {
       @Override
       public Head parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
         return new Head(input, extensionRegistry);
       }
     };
@@ -2551,59 +2402,57 @@ public final class MessageProtobuf {
     }
 
     @Override
-    public com.xbim.protobuf.MessageProtobuf.Head getDefaultInstanceForType() {
+    public Head getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_ChatMessage_descriptor;
+    internal_static_ChatMessage_descriptor;
   private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_ChatMessage_fieldAccessorTable;
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_ChatMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-          internal_static_Head_descriptor;
+    internal_static_Head_descriptor;
   private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internal_static_Head_fieldAccessorTable;
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Head_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-  getDescriptor() {
+      getDescriptor() {
     return descriptor;
   }
-
-  private static com.google.protobuf.Descriptors.FileDescriptor
-          descriptor;
-
+  private static  com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
   static {
     String[] descriptorData = {
-            "\n\021ChatMessage.proto\"0\n\013ChatMessage\022\023\n\004he" +
-                    "ad\030\001 \001(\0132\005.Head\022\014\n\004body\030\002 \001(\t\"\260\001\n\004Head\022\r" +
-                    "\n\005msgId\030\001 \001(\t\022\031\n\007msgType\030\002 \001(\0162\010.MsgType" +
-                    "\022\'\n\016msgContentType\030\003 \001(\0162\017.MsgContentTyp" +
-                    "e\022\016\n\006fromId\030\004 \001(\003\022\014\n\004toId\030\005 \001(\003\022\021\n\ttimes" +
-                    "tamp\030\006 \001(\003\022\024\n\014statusReport\030\007 \001(\005\022\016\n\006exte" +
-                    "nd\030\010 \001(\t*\030\n\007MsgType\022\r\n\tHANDSHAKE\020\000*\032\n\016Ms" +
-                    "gContentType\022\010\n\004TEXT\020\000B$\n\021com.xbim.proto" +
-                    "bufB\017MessageProtobufb\006proto3"
+      "\n\021ChatMessage.proto\"0\n\013ChatMessage\022\023\n\004he" +
+      "ad\030\001 \001(\0132\005.Head\022\014\n\004body\030\002 \001(\t\"\260\001\n\004Head\022\r" +
+      "\n\005msgId\030\001 \001(\t\022\031\n\007msgType\030\002 \001(\0162\010.MsgType" +
+      "\022\'\n\016msgContentType\030\003 \001(\0162\017.MsgContentTyp" +
+      "e\022\016\n\006fromId\030\004 \001(\003\022\014\n\004toId\030\005 \001(\003\022\021\n\ttimes" +
+      "tamp\030\006 \001(\003\022\024\n\014statusReport\030\007 \001(\005\022\016\n\006exte" +
+      "nd\030\010 \001(\t*\030\n\007MsgType\022\r\n\tHANDSHAKE\020\000*\032\n\016Ms" +
+      "gContentType\022\010\n\004TEXT\020\000B\034\n\021com.xbim.proto" +
+      "bufB\007Messageb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
-            .internalBuildGeneratedFileFrom(descriptorData,
-                    new com.google.protobuf.Descriptors.FileDescriptor[]{
-                    });
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        });
     internal_static_ChatMessage_descriptor =
-            getDescriptor().getMessageTypes().get(0);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_ChatMessage_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_ChatMessage_descriptor,
-            new String[]{"Head", "Body",});
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_ChatMessage_descriptor,
+        new String[] { "Head", "Body", });
     internal_static_Head_descriptor =
-            getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_Head_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-            internal_static_Head_descriptor,
-            new String[]{"MsgId", "MsgType", "MsgContentType", "FromId", "ToId", "Timestamp", "StatusReport", "Extend",});
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Head_descriptor,
+        new String[] { "MsgId", "MsgType", "MsgContentType", "FromId", "ToId", "Timestamp", "StatusReport", "Extend", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

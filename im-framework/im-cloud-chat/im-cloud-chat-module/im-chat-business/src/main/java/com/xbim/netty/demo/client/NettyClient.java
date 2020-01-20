@@ -1,7 +1,10 @@
 package com.xbim.netty.demo.client;
 
+import com.xbim.protobuf.Message;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -30,8 +33,9 @@ public class NettyClient {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
-                String s = in.readLine();
-                channel.writeAndFlush(s + "\r\n");
+//                String s = in.readLine();
+                channel.writeAndFlush(Message.ChatMessage.newBuilder().setBody("hello"));
+
             }
 
         } finally {

@@ -1,6 +1,6 @@
 syntax = "proto3"; // 指定protobuf版本
 option java_package = "com.xbim.protobuf"; // 指定包名
-option java_outer_classname = "MessageProtobuf"; // 指定生成的类名
+option java_outer_classname = "Message"; // 指定生成的类名
 
 message ChatMessage {
     Head head = 1; // 消息头

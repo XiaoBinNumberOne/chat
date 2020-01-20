@@ -1,5 +1,6 @@
 package com.xbim.netty.demo.client;
 
+import com.xbim.protobuf.Message;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.java.Log;
@@ -10,9 +11,9 @@ import lombok.extern.java.Log;
  * @desc
  */
 @Log
-public class ClientHandler extends SimpleChannelInboundHandler<String> {
+public class ClientHandler extends SimpleChannelInboundHandler<Message.ChatMessage> {
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, String s) throws Exception {
-        log.info("服务端说：" + s);
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Message.ChatMessage msg) throws Exception {
+        log.info("服务端说：" + msg.getBody());
     }
 }
