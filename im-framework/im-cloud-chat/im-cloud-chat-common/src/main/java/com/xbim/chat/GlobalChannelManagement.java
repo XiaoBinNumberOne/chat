@@ -1,11 +1,14 @@
 package com.xbim.chat;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.log.LogFactory;
+
+import java.io.IOException;
 import java.nio.channels.Channel;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * @author ningbin
@@ -26,7 +29,7 @@ public class GlobalChannelManagement implements GlobalChannel {
     private static final Map<Integer,Map<String, Channel>> channelMap = new ConcurrentHashMap<>();
 
     static {
-        IntStream.range(0,MAP_SIZE-1).forEach(index->channelMap.put(index,new ConcurrentHashMap<>()));
+        IntStream.range(0, MAP_SIZE - 1).forEach(index -> channelMap.put(index, new ConcurrentHashMap<>()));
     }
 
 
@@ -35,14 +38,41 @@ public class GlobalChannelManagement implements GlobalChannel {
 
     }
 
-    private boolean channelIsExist(String userId){
-
-        return false;
+    private boolean channelIsExist(String userId) {
+        Channel channel = searchChannel(userId);
+        return Optional.ofNullable(ObjectUtil.isEmpty(channel)).orElse(true);
     }
+
+    /**
+     * 通过ID查询channel
+     *
+     * @param userId
+     * @return
+     */
+    private Channel searchChannel(String userId) {
+        if (!ObjectUtil.isEmpty(userId)) {
+            for (Map.Entry<Integer, Map<String, Channel>> entry : channelMap.entrySet()) {
+                for (Map.Entry<String, Channel> channelEntry : entry.getValue().entrySet()) {
+                    if (userId.equals(channelEntry.getKey())) {
+                        return channelEntry.getValue();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
 
     @Override
     public void closeChannel(String userId) {
-
+        Channel channel = searchChannel(userId);
+        if (!ObjectUtil.isEmpty(channel)) {
+            try {
+                channel.close();
+            } catch (IOException e) {
+                LogFactory.get().error("关闭channel错误，信息{}", e);
+            }
+        }
     }
 
     @Override
