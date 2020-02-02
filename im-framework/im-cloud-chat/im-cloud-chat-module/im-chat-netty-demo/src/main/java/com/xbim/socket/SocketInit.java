@@ -17,7 +17,7 @@ public class SocketInit extends ChannelInitializer {
 
         pipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         pipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-        pipeline.addLast(new IdleStateHandler(5, 4, 6, TimeUnit.SECONDS));
+        pipeline.addLast(new IdleStateHandler(5, 7, 8, TimeUnit.SECONDS));
         pipeline.addLast(new HeartbeatHandler());
         pipeline.addLast(new SocketHandler());
     }

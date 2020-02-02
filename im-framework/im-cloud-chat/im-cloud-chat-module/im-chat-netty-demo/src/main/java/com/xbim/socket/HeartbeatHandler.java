@@ -17,7 +17,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
                     System.out.println("读空闲");
                     break;
                 case "WRITER_IDLE":
-//                   System.out.println("写空闲");
+                   System.out.println("写空闲");
                     break;
                 case "ALL_IDLE":
 //                   System.out.println("读/写空闲");

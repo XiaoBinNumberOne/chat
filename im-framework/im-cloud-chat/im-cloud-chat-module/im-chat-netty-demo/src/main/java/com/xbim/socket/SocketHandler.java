@@ -6,14 +6,24 @@ import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class SocketHandler extends SimpleChannelInboundHandler<String> {
 
     private static ChannelGroup channelGroup = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+
+    private static ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
         channelGroup.writeAndFlush("==================【" + ctx.channel().remoteAddress() + "客户端加入聊天室】==================");
         channelGroup.add(ctx.channel());
+
+        executor.scheduleAtFixedRate(() -> {
+            ctx.channel().writeAndFlush("server pong");
+        }, 0, 6, TimeUnit.SECONDS);
     }
 
     @Override
