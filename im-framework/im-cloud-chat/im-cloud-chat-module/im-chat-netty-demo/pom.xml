@@ -3,20 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>im-framework</artifactId>
+        <artifactId>im-cloud-chat</artifactId>
         <groupId>com.xbim</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>im-cloud-chat</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>im-cloud-chat-common</module>
-        <module>im-cloud-chat-module</module>
-        <module>im-cloud-chat-api</module>
-        <module>im-chat-netty-demo</module>
-    </modules>
+    <artifactId>im-chat-netty-demo</artifactId>
 
-
+    <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.44.Final</version>
+        </dependency>
+    </dependencies>
 </project>
