@@ -15,7 +15,6 @@
         <module>im-cloud-chat-common</module>
         <module>im-cloud-chat-module</module>
         <module>im-cloud-chat-api</module>
-        <module>im-chat-netty-demo</module>
     </modules>
 
 

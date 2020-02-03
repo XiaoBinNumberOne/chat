@@ -19,7 +19,7 @@ public class SocketClientHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("客户端加入");
         ScheduledFuture<?> scheduledFuture = executor.scheduleAtFixedRate(() -> {
             ctx.channel().writeAndFlush("ping");
-        }, 1, 4, TimeUnit.SECONDS);
+        }, 1, 14, TimeUnit.SECONDS);
         map.put(ctx.channel().id().asLongText(), scheduledFuture);
         super.handlerAdded(ctx);
     }
