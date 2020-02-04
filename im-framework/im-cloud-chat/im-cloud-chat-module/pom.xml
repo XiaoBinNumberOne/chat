@@ -12,8 +12,9 @@
     <artifactId>im-cloud-chat-module</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>im-chat-webscoket-test</module>
         <module>im-chat-business</module>
+        <module>im-chat-demo</module>
+        <module>im-module-chat</module>
     </modules>
 
 

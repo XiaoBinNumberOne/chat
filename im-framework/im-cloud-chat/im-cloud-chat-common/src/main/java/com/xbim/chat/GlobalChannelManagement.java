@@ -35,7 +35,14 @@ public class GlobalChannelManagement implements GlobalChannel {
 
     @Override
     public void addChannel(String userId, Channel channel) {
-
+        if (!ObjectUtil.isEmpty(userId)) {
+            // 获取hashCode进行取余
+            int index = userId.hashCode() % MAP_SIZE;
+            Map<String, Channel> channelMap = GlobalChannelManagement.channelMap.get(index);
+            channelMap.put(userId, channel);
+        } else {
+            LogFactory.get().error("Channel userId 不能为空");
+        }
     }
 
     private boolean channelIsExist(String userId) {
@@ -84,4 +91,5 @@ public class GlobalChannelManagement implements GlobalChannel {
     public void singleMessage(String userId, String message) {
 
     }
+
 }
