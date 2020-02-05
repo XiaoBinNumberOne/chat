@@ -1,8 +1,39 @@
-syntax = "proto3";
+syntax = "proto3"; // 指定protobuf版本
 
-message chatMsg{
-	string msgId = 1;
-	uint64 fromId = 2;
-	uint64 toId = 3;
-	string msg = 4;
+message ChatMessage {
+    Head head = 1; // 消息头
+    string body = 2; // 消息体
 }
+
+message Head {
+    string msgId = 1; // 消息id
+    MsgType msgType = 2; // 消息类型
+    MsgContentType msgContentType = 3; // 消息内容类型
+    int64 fromId = 4; // 消息发送者id
+    int64 toId = 5; // 消息接收者id
+    int64 timestamp = 6; // 消息时间戳
+    int32 statusReport = 7; // 状态报告
+    string extend = 8; // 扩展字段(JSON格式)
+}
+
+enum MsgType {
+    HANDSHAKE = 0; // 握手消息
+    HEARTBEAT = 1; // 心跳信息
+    OFFLINE = 2; // 用户被挤下线
+    OFFLINE_INFO = 3; // 拉取离线信息
+    BACK_INFO = 4; // 返回离线信息
+    ACK_INFO = 5; // 应答离线信息
+    CLIENT_STATUS_REPORT = 6; // 客户端状态报告
+    SERVER_STATUS_REPORT = 7; // 服务端状态报告
+    SINGLE_CHAT = 8; // 单聊
+    GROUP_CHAT = 9; //群聊
+
+}
+
+enum MsgContentType {
+    TEXT = 0; // 文本消息
+    VOICE = 1; // 语音消息
+    IMAGE = 2; // 图片
+}
+
+
