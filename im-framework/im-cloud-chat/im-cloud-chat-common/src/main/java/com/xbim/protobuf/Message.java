@@ -18,7 +18,7 @@ public final class Message {
    * Protobuf enum {@code MsgType}
    */
   public enum MsgType
-      implements com.google.protobuf.ProtocolMessageEnum {
+          implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
      * 握手消息
@@ -27,6 +27,78 @@ public final class Message {
      * <code>HANDSHAKE = 0;</code>
      */
     HANDSHAKE(0),
+    /**
+     * <pre>
+     * 心跳信息
+     * </pre>
+     *
+     * <code>HEARTBEAT = 1;</code>
+     */
+    HEARTBEAT(1),
+    /**
+     * <pre>
+     * 用户被挤下线
+     * </pre>
+     *
+     * <code>OFFLINE = 2;</code>
+     */
+    OFFLINE(2),
+    /**
+     * <pre>
+     * 拉取离线信息
+     * </pre>
+     *
+     * <code>OFFLINE_INFO = 3;</code>
+     */
+    OFFLINE_INFO(3),
+    /**
+     * <pre>
+     * 返回离线信息
+     * </pre>
+     *
+     * <code>BACK_INFO = 4;</code>
+     */
+    BACK_INFO(4),
+    /**
+     * <pre>
+     * 应答离线信息
+     * </pre>
+     *
+     * <code>ACK_INFO = 5;</code>
+     */
+    ACK_INFO(5),
+    /**
+     * <pre>
+     * 客户端状态报告
+     * </pre>
+     *
+     * <code>CLIENT_STATUS_REPORT = 6;</code>
+     */
+    CLIENT_STATUS_REPORT(6),
+    /**
+     * <pre>
+     * 服务端状态报告
+     * </pre>
+     *
+     * <code>SERVER_STATUS_REPORT = 7;</code>
+     */
+    SERVER_STATUS_REPORT(7),
+    /**
+     * <pre>
+     * 单聊
+     * </pre>
+     *
+     * <code>SINGLE_CHAT = 8;</code>
+     */
+    SINGLE_CHAT(8),
+    /**
+     * <pre>
+     * 群聊
+     * </pre>
+     *
+     * <code>GROUP_CHAT = 9;</code>
+     */
+    GROUP_CHAT(9),
     UNRECOGNIZED(-1),
     ;
 
@@ -38,12 +110,84 @@ public final class Message {
      * <code>HANDSHAKE = 0;</code>
      */
     public static final int HANDSHAKE_VALUE = 0;
+    /**
+     * <pre>
+     * 心跳信息
+     * </pre>
+     *
+     * <code>HEARTBEAT = 1;</code>
+     */
+    public static final int HEARTBEAT_VALUE = 1;
+    /**
+     * <pre>
+     * 用户被挤下线
+     * </pre>
+     *
+     * <code>OFFLINE = 2;</code>
+     */
+    public static final int OFFLINE_VALUE = 2;
+    /**
+     * <pre>
+     * 拉取离线信息
+     * </pre>
+     *
+     * <code>OFFLINE_INFO = 3;</code>
+     */
+    public static final int OFFLINE_INFO_VALUE = 3;
+    /**
+     * <pre>
+     * 返回离线信息
+     * </pre>
+     *
+     * <code>BACK_INFO = 4;</code>
+     */
+    public static final int BACK_INFO_VALUE = 4;
+    /**
+     * <pre>
+     * 应答离线信息
+     * </pre>
+     *
+     * <code>ACK_INFO = 5;</code>
+     */
+    public static final int ACK_INFO_VALUE = 5;
+    /**
+     * <pre>
+     * 客户端状态报告
+     * </pre>
+     *
+     * <code>CLIENT_STATUS_REPORT = 6;</code>
+     */
+    public static final int CLIENT_STATUS_REPORT_VALUE = 6;
+    /**
+     * <pre>
+     * 服务端状态报告
+     * </pre>
+     *
+     * <code>SERVER_STATUS_REPORT = 7;</code>
+     */
+    public static final int SERVER_STATUS_REPORT_VALUE = 7;
+    /**
+     * <pre>
+     * 单聊
+     * </pre>
+     *
+     * <code>SINGLE_CHAT = 8;</code>
+     */
+    public static final int SINGLE_CHAT_VALUE = 8;
+    /**
+     * <pre>
+     * 群聊
+     * </pre>
+     *
+     * <code>GROUP_CHAT = 9;</code>
+     */
+    public static final int GROUP_CHAT_VALUE = 9;
 
 
     public final int getNumber() {
       if (this == UNRECOGNIZED) {
         throw new IllegalArgumentException(
-            "Can't get the number of an unknown enum value.");
+                "Can't get the number of an unknown enum value.");
       }
       return value;
     }
@@ -59,6 +203,15 @@ public final class Message {
     public static MsgType forNumber(int value) {
       switch (value) {
         case 0: return HANDSHAKE;
+        case 1: return HEARTBEAT;
+        case 2: return OFFLINE;
+        case 3: return OFFLINE_INFO;
+        case 4: return BACK_INFO;
+        case 5: return ACK_INFO;
+        case 6: return CLIENT_STATUS_REPORT;
+        case 7: return SERVER_STATUS_REPORT;
+        case 8: return SINGLE_CHAT;
+        case 9: return GROUP_CHAT;
         default: return null;
       }
     }
@@ -94,7 +247,7 @@ public final class Message {
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
+                "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
         return UNRECOGNIZED;
@@ -115,7 +268,7 @@ public final class Message {
    * Protobuf enum {@code MsgContentType}
    */
   public enum MsgContentType
-      implements com.google.protobuf.ProtocolMessageEnum {
+          implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
      * 文本消息
@@ -124,6 +277,22 @@ public final class Message {
      * <code>TEXT = 0;</code>
      */
     TEXT(0),
+    /**
+     * <pre>
+     * 语音消息
+     * </pre>
+     *
+     * <code>VOICE = 1;</code>
+     */
+    VOICE(1),
+    /**
+     * <pre>
+     * 图片
+     * </pre>
+     *
+     * <code>IMAGE = 2;</code>
+     */
+    IMAGE(2),
     UNRECOGNIZED(-1),
     ;
 
@@ -135,6 +304,22 @@ public final class Message {
      * <code>TEXT = 0;</code>
      */
     public static final int TEXT_VALUE = 0;
+    /**
+     * <pre>
+     * 语音消息
+     * </pre>
+     *
+     * <code>VOICE = 1;</code>
+     */
+    public static final int VOICE_VALUE = 1;
+    /**
+     * <pre>
+     * 图片
+     * </pre>
+     *
+     * <code>IMAGE = 2;</code>
+     */
+    public static final int IMAGE_VALUE = 2;
 
 
     public final int getNumber() {
@@ -156,6 +341,8 @@ public final class Message {
     public static MsgContentType forNumber(int value) {
       switch (value) {
         case 0: return TEXT;
+        case 1: return VOICE;
+        case 2: return IMAGE;
         default: return null;
       }
     }
@@ -2414,28 +2601,35 @@ public final class Message {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ChatMessage_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Head_descriptor;
+          internal_static_Head_descriptor;
   private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Head_fieldAccessorTable;
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_Head_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
+  getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
+
+  private static com.google.protobuf.Descriptors.FileDescriptor
+          descriptor;
+
   static {
     String[] descriptorData = {
-      "\n\021ChatMessage.proto\"0\n\013ChatMessage\022\023\n\004he" +
-      "ad\030\001 \001(\0132\005.Head\022\014\n\004body\030\002 \001(\t\"\260\001\n\004Head\022\r" +
-      "\n\005msgId\030\001 \001(\t\022\031\n\007msgType\030\002 \001(\0162\010.MsgType" +
-      "\022\'\n\016msgContentType\030\003 \001(\0162\017.MsgContentTyp" +
-      "e\022\016\n\006fromId\030\004 \001(\003\022\014\n\004toId\030\005 \001(\003\022\021\n\ttimes" +
-      "tamp\030\006 \001(\003\022\024\n\014statusReport\030\007 \001(\005\022\016\n\006exte" +
-      "nd\030\010 \001(\t*\030\n\007MsgType\022\r\n\tHANDSHAKE\020\000*\032\n\016Ms" +
-      "gContentType\022\010\n\004TEXT\020\000B\034\n\021com.xbim.proto" +
-      "bufB\007Messageb\006proto3"
+            "\n\021ChatMessage.proto\"0\n\013ChatMessage\022\023\n\004he" +
+                    "ad\030\001 \001(\0132\005.Head\022\014\n\004body\030\002 \001(\t\"\260\001\n\004Head\022\r" +
+                    "\n\005msgId\030\001 \001(\t\022\031\n\007msgType\030\002 \001(\0162\010.MsgType" +
+                    "\022\'\n\016msgContentType\030\003 \001(\0162\017.MsgContentTyp" +
+                    "e\022\016\n\006fromId\030\004 \001(\003\022\014\n\004toId\030\005 \001(\003\022\021\n\ttimes" +
+                    "tamp\030\006 \001(\003\022\024\n\014statusReport\030\007 \001(\005\022\016\n\006exte" +
+                    "nd\030\010 \001(\t*\270\001\n\007MsgType\022\r\n\tHANDSHAKE\020\000\022\r\n\tH" +
+                    "EARTBEAT\020\001\022\013\n\007OFFLINE\020\002\022\020\n\014OFFLINE_INFO\020" +
+      "\003\022\r\n\tBACK_INFO\020\004\022\014\n\010ACK_INFO\020\005\022\030\n\024CLIENT" +
+      "_STATUS_REPORT\020\006\022\030\n\024SERVER_STATUS_REPORT" +
+      "\020\007\022\017\n\013SINGLE_CHAT\020\010\022\016\n\nGROUP_CHAT\020\t*0\n\016M" +
+      "sgContentType\022\010\n\004TEXT\020\000\022\t\n\005VOICE\020\001\022\t\n\005IM" +
+      "AGE\020\002B\034\n\021com.xbim.protobufB\007Messageb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

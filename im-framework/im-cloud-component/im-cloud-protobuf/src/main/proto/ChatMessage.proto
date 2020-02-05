@@ -1,4 +1,5 @@
 syntax = "proto3"; // 指定protobuf版本
+
 option java_package = "com.xbim.protobuf"; // 指定包名
 option java_outer_classname = "Message"; // 指定生成的类名
 
@@ -18,13 +19,24 @@ message Head {
     string extend = 8; // 扩展字段(JSON格式)
 }
 
-
 enum MsgType {
     HANDSHAKE = 0; // 握手消息
+    HEARTBEAT = 1; // 心跳信息
+    OFFLINE = 2; // 用户被挤下线
+    OFFLINE_INFO = 3; // 拉取离线信息
+    BACK_INFO = 4; // 返回离线信息
+    ACK_INFO = 5; // 应答离线信息
+    CLIENT_STATUS_REPORT = 6; // 客户端状态报告
+    SERVER_STATUS_REPORT = 7; // 服务端状态报告
+    SINGLE_CHAT = 8; // 单聊
+    GROUP_CHAT = 9; //群聊
+
 }
 
 enum MsgContentType {
     TEXT = 0; // 文本消息
+    VOICE = 1; // 语音消息
+    IMAGE = 2; // 图片
 }
 
 
