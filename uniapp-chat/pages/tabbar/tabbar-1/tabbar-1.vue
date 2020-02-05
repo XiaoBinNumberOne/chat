@@ -18,14 +18,16 @@ export default {
 	onLoad() {},
 	methods: {
 		clickBtn(){
-			let chatMsg = new ChatMessage.chatMsg();
-			chatMsg.setMsgid("10001");
-			chatMsg.setFromid("001");
-			chatMsg.setToid("002");
-			chatMsg.setMsg("小斌你要加油，争取25岁之前有自己的事业");
-			console.log(chatMsg);
+			let chatMsg = new ChatMessage.ChatMessage();
+			let head = new ChatMessage.Head();
+			let msgType = ChatMessage.MsgType.GROUP_CHAT;
+			head.setMsgtype(msgType);
+			head.setMsgid("123");
+			chatMsg.setHead(head)
 			var bytes = chatMsg.serializeBinary();
-			console.log(ChatMessage.chatMsg.deserializeBinary(bytes));
+			console.log(bytes);
+			let msg = ChatMessage.ChatMessage.deserializeBinary(bytes);
+			console.log(msg.getHead().getMsgtype());
 		}
 	}
 };
