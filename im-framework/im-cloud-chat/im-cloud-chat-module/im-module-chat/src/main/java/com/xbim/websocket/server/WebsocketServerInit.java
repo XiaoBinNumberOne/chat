@@ -1,18 +1,17 @@
 package com.xbim.websocket.server;
 
 import com.xbim.protobuf.Message;
+import com.xbim.websocket.encode.MyProtobufDecoder;
+import com.xbim.websocket.encode.MyProtobufEncoder;
 import com.xbim.websocket.handler.WebsocketServerHandler;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
+import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
 import io.netty.handler.codec.protobuf.ProtobufDecoder;
-import io.netty.handler.codec.protobuf.ProtobufEncoder;
-import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
-import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
@@ -20,7 +19,7 @@ import io.netty.handler.stream.ChunkedWriteHandler;
  * @date 2020/2/5 19:37
  * @desc 客户端连接后初始化channel
  */
-public class WebsocketServerInit extends ChannelInitializer {
+public class WebsocketServerInit extends ChannelInitializer<NioSocketChannel> {
 
     private String url;
 
@@ -29,7 +28,7 @@ public class WebsocketServerInit extends ChannelInitializer {
     }
 
     @Override
-    protected void initChannel(Channel channel) throws Exception {
+    protected void initChannel(NioSocketChannel channel) throws Exception {
         ChannelPipeline pipeline = channel.pipeline();
 
         // HTTP请求的解码和编码
@@ -41,16 +40,16 @@ public class WebsocketServerInit extends ChannelInitializer {
         pipeline.addLast("chunkedWriteHandler", new ChunkedWriteHandler());
         // WebSocket数据压缩
         pipeline.addLast("webSocketServerCompressionHandler", new WebSocketServerCompressionHandler());
-        pipeline.addLast("webSocketServerProtocolHandler", new WebSocketServerProtocolHandler(this.url));
+        pipeline.addLast("webSocketServerProtocolHandler", new WebSocketServerProtocolHandler(this.url, null, true, 1024 * 10));
         //编码解码
         //解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
-        pipeline.addLast("ProtobufVarint32FrameDecoder", new ProtobufVarint32FrameDecoder());
+        pipeline.addLast("myProtobufDecoder", new MyProtobufDecoder());
+        pipeline.addLast("myProtobufEncoder", new MyProtobufEncoder());
         pipeline.addLast("protobufDecoder", new ProtobufDecoder(Message.ChatMessage.getDefaultInstance()));
-        pipeline.addLast("protobufVarint32LengthFieldPrepender", new ProtobufVarint32LengthFieldPrepender());
-        pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 
         //添加自定义处理器
         pipeline.addLast("websocketServerHandler", new WebsocketServerHandler());
 
     }
+
 }

@@ -25,7 +25,7 @@
 		methods: {
 			sendMsg:function(){
 				this.wsClient.connection({
-					wsUrl:"xxx"
+					wsUrl:"ws://127.0.0.1:29999/chat/ws"
 				});
 			},
 			gotoNewPage:function(){
