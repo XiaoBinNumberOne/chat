@@ -1,7 +1,6 @@
 package com.xbim.websocket.server;
 
-import com.xbim.websocket.encode.ProtobufDecoder;
-import com.xbim.websocket.encode.ProtobufEncoder;
+import com.xbim.protobuf.Message;
 import com.xbim.websocket.handler.WebsocketServerHandler;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -10,6 +9,8 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketServerCompressionHandler;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
+import io.netty.handler.codec.protobuf.ProtobufEncoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder;
 import io.netty.handler.codec.protobuf.ProtobufVarint32LengthFieldPrepender;
 import io.netty.handler.stream.ChunkedWriteHandler;
@@ -44,7 +45,7 @@ public class WebsocketServerInit extends ChannelInitializer {
         //编码解码
         //解码器，通过Google Protocol Buffers序列化框架动态的切割接收到的ByteBuf
         pipeline.addLast("ProtobufVarint32FrameDecoder", new ProtobufVarint32FrameDecoder());
-        pipeline.addLast("protobufDecoder", new ProtobufDecoder());
+        pipeline.addLast("protobufDecoder", new ProtobufDecoder(Message.ChatMessage.getDefaultInstance()));
         pipeline.addLast("protobufVarint32LengthFieldPrepender", new ProtobufVarint32LengthFieldPrepender());
         pipeline.addLast("protobufEncoder", new ProtobufEncoder());
 
