@@ -15,5 +15,7 @@ public class WebsocketServerHandler extends SimpleChannelInboundHandler<Message.
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Message.ChatMessage msg) throws Exception {
         log.info("收到消息：{}", msg);
+        Message.ChatMessage hello = Message.ChatMessage.newBuilder().setBody("hello").build();
+        ctx.channel().writeAndFlush(hello);
     }
 }

@@ -9,6 +9,9 @@ import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * @author xiaobin
  * @date 2020/2/5 19:12
@@ -16,10 +19,13 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class WebsocketServer {
+    // 启动单例线程
+    private static final ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
 
     private EventLoopGroup parentGroup;
     private EventLoopGroup childGroup;
     private ServerBootstrap serverBootstrap;
+
 
     private Integer port;
     private String wsUrl;
@@ -32,7 +38,9 @@ public class WebsocketServer {
     public void initializer() {
         this.parentGroup = new NioEventLoopGroup(1);
         this.childGroup = new NioEventLoopGroup();
-        this.serverStart();
+        singleThreadExecutor.execute(() -> {
+            this.serverStart();
+        });
     }
 
     public void serverStart() {
