@@ -14,22 +14,22 @@
 
 <script>
 	export default {
-		created() {
-			console.log("created方法");
-		},
 		data() {
 			return {
-
+				
 			}
 		},
 		methods: {
-			sendMsg:function(){
-				this.wsClient.connection({
-					wsUrl:"ws://127.0.0.1:29999/chat/ws"
+			sendMsg: function() {
+				this.xbIM.connection({
+					wsUrl: "ws://121.40.165.18:8800"
 				});
+				this.xbIM.websocketClient.onmessage=(msg)=>{
+					console.log(msg);
+				};
 			},
-			gotoNewPage:function(){
-				
+			gotoNewPage: function() {
+
 			}
 		}
 	}

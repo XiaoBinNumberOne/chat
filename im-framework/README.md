@@ -1,3 +1,11 @@
+#### 注册中心问题
+- 注册中心 使用的本地的nacos  
+- 配置中心 使用的是线上nacos
+
+#### 模块开发
+
+
+
 #### 🎯 protobuf格式定义
 ```
 syntax = "proto3"; // 指定protobuf版本

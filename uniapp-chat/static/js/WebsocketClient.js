@@ -55,6 +55,7 @@ function deserializeBinary(data,callback) {
 }
 // 消息回调
 function messageCallback(message){
+	console.log("奇怪");
 	console.log(message);
 }
 
@@ -69,8 +70,11 @@ function connection({
 	initializer();
 }
 
+// 监听消息事件
+
 
 
 export {
+	websocketClient,
 	connection
 }
