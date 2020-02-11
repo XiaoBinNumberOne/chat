@@ -1,6 +1,6 @@
-##模块开发
+## 模块开发
 
-###### 首先引入依赖
+##### 首先引入依赖
 ```
         <dependency>
             <groupId>com.xbim</groupId>
@@ -13,7 +13,7 @@
         </dependency>
 ```
 
-###### 增加ProtocolConfig dubbo配置
+##### 增加ProtocolConfig dubbo配置
 ```
  @Bean
     public ProtocolConfig protocolConfig() {
@@ -29,7 +29,7 @@
 @EnableFeignClients(basePackages = "com.xbim.chat.service")
 ```
 
-###### 配置文件application.properties
+##### 配置文件application.properties
 ```
 spring.main.allow-bean-definition-overriding=true
 dubbo.application.name=demo
