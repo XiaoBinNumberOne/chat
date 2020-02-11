@@ -8,7 +8,7 @@
 | [im-web](https://github.com/XiaoBinNumberOne/chat/tree/master/im-web/ "web端")     | Web管理端              | 1% |
 |[uniapp-chat](https://github.com/XiaoBinNumberOne/chat/tree/master/uniapp-chat/ "uniapp端") | uniapp端           | 1% |
 ### 📔系统使用的技术
-1. 后端：Spring Cloud Alibaba、Mybatis-Plus、Springboot、Netty
+1. 后端：Spring Cloud Alibaba、dubbo、Mybatis-Plus、Springboot、Netty
 2. 权限认证：Spring Security、Spring Security Oauth2
 3. 网关：Spring Cloud Gateway
 4. 数据库：Mysql、Mongodb
