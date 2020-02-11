@@ -24,6 +24,11 @@
     }
 ```
 
+##### 配置feign扫描
+```
+@EnableFeignClients(basePackages = "com.xbim.chat.service")
+```
+
 ###### 配置文件application.properties
 ```
 spring.main.allow-bean-definition-overriding=true
