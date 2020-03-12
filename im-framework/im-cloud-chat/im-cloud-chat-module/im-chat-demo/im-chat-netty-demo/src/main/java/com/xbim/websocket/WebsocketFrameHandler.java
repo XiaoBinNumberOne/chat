@@ -22,10 +22,7 @@ public class WebsocketFrameHandler extends SimpleChannelInboundHandler<TextWebSo
             FullHttpRequest fullHttpRequest = (FullHttpRequest) msg;
             // 进行鉴权
             String token = getToken(fullHttpRequest.uri());
-            if (ObjectUtil.isEmpty(token)) {
-                ctx.close();
-            }
-            if (token.equals("xiaobin")) {
+            if (!ObjectUtil.isEmpty(token) && token.equals("xiaobin")) {
                 defaultChannelGroup.add(ctx.channel());
                 timedCache.put(ctx.channel(), ctx.channel().id().asLongText(), 10000);
                 timedCache.schedulePrune(5);
