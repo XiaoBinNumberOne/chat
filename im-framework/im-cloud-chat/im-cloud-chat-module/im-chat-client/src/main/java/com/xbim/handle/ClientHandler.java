@@ -1,5 +1,7 @@
 package com.xbim.handle;
 
+import io.netty.channel.Channel;
+
 /**
  * @author xiaobin
  * @date 2020/3/14 16:55
@@ -24,6 +26,9 @@ public interface ClientHandler {
      * 关闭连接
      */
     void close();
+
+
+    Channel getChannel();
 
 
 }
