@@ -13,7 +13,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>im-chat-business</module>
-        <module>im-chat-demo</module>
         <module>im-chat-server</module>
         <module>im-chat-client</module>
     </modules>
